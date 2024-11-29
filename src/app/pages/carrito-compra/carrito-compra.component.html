@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="carrito-compra.component.css">
+</head> 
+
+<div class="carrito-container">
+    <h2>Carrito de Compras</h2>
+  
+    <div *ngFor="let producto of productosEnCarrito" class="producto-carrito">
+      <img [src]="producto.image" alt="{{ producto.name }}" />
+      <div>
+        <h3>{{ producto.name }}</h3>
+        <p>{{ producto.price | currency }}</p>
+        <p><strong>Talla: </strong>{{ producto.selectedSize }}</p> <!-- Mostrar talla seleccionada -->
+        <button (click)="eliminarDelCarrito(producto)">Eliminar</button>
+      </div>
+    </div>
+  
+    <div *ngIf="productosEnCarrito.length === 0">
+      <p>No hay productos en el carrito</p>
+    </div>
+  
+    <!-- Resumen del pedido -->
+    <div *ngIf="productosEnCarrito.length > 0" class="resumen-pedido">
+      <h3>Resumen del Pedido</h3>
+      <div class="detalle-pedido">
+        <p><strong>Total de productos:</strong> {{ totalProductos }} artículos</p>
+        <p><strong>Subtotal:</strong> {{ totalPrecio | currency }}</p> <!-- Precio total -->
+        <p><strong>Total a pagar:</strong> {{ totalPrecio | currency }}</p>
+      </div>
+      <button class="btn-pagar" (click)="hacerPedido()">Hacer pedido</button>
+    </div>
+</div>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="producto.component.css">
+</head>
+<body>
+  <header>
+    <h1>LO ÚLTIMO</h1>
+    <div class="search-box">
+        <input type="text" id="search-input" placeholder="Buscar..." (keyup)="filtrarProductos()">
+        <button type="button" (click)="filtrarProductos()">Buscar</button>
+    </div>
+</header>
+
+<div class="carousel">
+  <div class="carousel-images">
+    <div class="carousel-item active">
+      <img src="assets/imgs/banner2.jpg" alt="50% de descuento">
+      <div class="carousel-text">¡Aprovecha hasta el 50% de descuento!</div>
+    </div>
+    <div class="carousel-item">
+      <img src="ruta/modelos.jpg" alt="Modelos destacados">
+      <div class="carousel-text">Explora los nuevos modelos</div>
+    </div>
+    <div class="carousel-item">
+      <img src="ruta/productos.jpg" alt="Productos destacados">
+      <div class="carousel-text">¡Productos que te encantarán!</div>
+    </div>
+  </div>
+  <div class="carousel-indicators">
+    <span class="indicator active" data-slide="0"></span>
+    <span class="indicator" data-slide="1"></span>
+    <span class="indicator" data-slide="2"></span>
+  </div>
+</div>
+
+  <div class="producto-list">
+    <div class="productos">
+      <mat-card 
+        class="product-card" 
+        *ngFor="let producto of productos" 
+        (click)="openProductDetail(producto)">
+        <mat-card-header>
+          <mat-card-title>{{ producto.name }}</mat-card-title>
+          <mat-card-subtitle>{{ producto.price | currency }}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image [src]="producto.image" alt="{{ producto.name }}">
+        <mat-card-content>
+          <p>{{ producto.review }}</p>
+    
+          <!-- Estrellas en la vista inicial -->
+          <div class="stars">
+            <ng-container *ngFor="let star of generateStars(producto.rating)">
+              <span class="star" [ngClass]="star"></span>
+            </ng-container>
+          </div>
+          <p>{{ producto.rating | number: '1.1-1' }} estrellas</p>
+          <button mat-icon-button class="wishlist-button" (click)="toggleWishlist(producto, $event)">
+        <mat-icon [ngClass]="isInWishlist(producto) ? 'heart-filled' : 'heart-outline'">favorite</mat-icon>
+      </button>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  
+    <!-- Ventana emergente con los detalles del producto -->
+    <div *ngIf="selectedProduct" class="product-detail-modal">
+      <div class="overlay" (click)="closeProductDetail()"></div>
+      <div class="modal-content">
+        <img [src]="selectedProduct.image" alt="{{ selectedProduct.name }}" />
+        <h2>{{ selectedProduct.name }}</h2>
+        <p>{{ selectedProduct.description }}</p>
+        <p><strong>{{ selectedProduct.price | currency }}</strong></p>
+  
+        <!-- Reseña dentro de la ventana emergente -->
+        <div class="product-review">
+          <p><strong>Reseña:</strong> {{ selectedProduct.review }}</p>
+          <div class="stars">
+            <ng-container *ngFor="let star of generateStars(selectedProduct.rating)">
+              <span class="star" [ngClass]="star"></span>
+            </ng-container>
+          </div>
+          <p>{{ selectedProduct.rating | number: '1.1-1' }} estrellas</p> <!-- Muestra la calificación numérica -->
+        </div>
+  
+        <label for="size">Seleccionar Talla:</label>
+        <select id="size" [(ngModel)]="selectedSize">
+          <option *ngFor="let size of selectedProduct.sizes" [value]="size">{{ size }}</option>
+        </select>
+  
+        <div class="modal-buttons">
+          <button class="btn-carrito" (click)="addToCart()">Añadir al carrito</button>
+          <button class="btn-cerrar" (click)="closeProductDetail()">Cerrar</button>
+        </div>
+
+        <div *ngIf="message" class="success-message" [ngClass]="{'advertencia': message.includes('Por favor') }">
+      {{ message }}
+    </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+  

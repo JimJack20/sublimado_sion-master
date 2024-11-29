@@ -1,0 +1,325 @@
+header, nav, main, footer {
+  margin: 20px;
+}
+
+header {
+  background-color: #5f5a72;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Sombra */
+  border-radius: 8px; /* Bordes redondeados */
+}
+
+.search-box {
+  float: left;
+  margin-top: -60px;
+}
+
+.search-box input {
+  margin-left: 15px;
+  padding: 10px 30px;
+  border-radius: 10px; /* Bordes redondeados */
+}
+
+.search-box button {
+  padding: 8px 10px;
+  border: none;
+  cursor: pointer; 
+  display: inline-block;
+  background-color: #ff6600; 
+  color: white;
+  text-decoration: none;
+  border-radius: 20px; 
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+.search-box button:hover {
+  background-color: #cc5500; /* Color al pasar el ratón */
+  transform: translateY(-2px); /* Efecto hover */
+}
+
+h1, button, mat-card-title{
+  font-family: 'Outfit', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-weight: bold
+}
+
+p{
+  font-family: 'Outfit', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.producto-list {
+    padding: 20px;
+  }
+  
+  .productos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Cuatro columnas de igual tamaño */
+    gap: 50px; /* Espacio entre las tarjetas */
+    padding: 20px;
+  }
+
+  .product-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Animaciones suaves */
+    cursor: pointer;
+  }
+  
+  .product-card:hover {
+    transform: scale(1.05); /* Crece ligeramente al pasar el mouse */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+  }
+  
+  .product-card:active {
+    transform: scale(0.98); /* Se contrae al hacer clic */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra más suave */
+  }
+  
+  mat-card {
+    background-color: #ffffff;
+    border-radius: 20px;
+    width: 100%; /* Asegura que la tarjeta ocupe todo el ancho disponible de su columna */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  mat-card-header {
+    display: flex;
+    flex-direction: column; /* Alinea el título y subtítulo verticalmente */
+    align-items: center; /* Centra los elementos horizontalmente */
+    justify-content: center; /* Asegura que el espacio se use de manera uniforme */
+  }
+
+  mat-card img {
+    width: 100%; /* Ocupa todo el ancho disponible de la tarjeta */
+    height: auto; /* Mantiene la proporción de la imagen */
+    max-width: 250px; /* Limita el ancho máximo de la imagen */
+    object-fit: cover; /* Asegura que la imagen cubra todo el espacio */
+  }
+
+  mat-card-subtitle {
+    text-align: center; /* Alinea el texto al centro */
+    font-size: 1.2rem; /* Ajusta el tamaño de la fuente si es necesario */
+    font-weight: bold; /* Opcional: resalta el precio */
+    margin-top: 10px; /* Opcional: da un poco de separación hacia arriba */
+    color: #333; /* Cambia el color del precio si quieres */
+  }
+
+  @media (max-width: 1200px) {
+    .productos {
+      grid-template-columns: repeat(3, 1fr); /* 3 columnas en pantallas medianas */
+    }
+  }
+  
+  @media (max-width: 900px) {
+    .productos {
+      grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas pequeñas */
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .productos {
+      grid-template-columns: 1fr; /* 1 columna en pantallas muy pequeñas */
+    }
+  }
+  
+  .product-detail-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+    z-index: 1;
+    width: 400px;
+    text-align: center;
+  }
+  
+  .modal-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  /* Contenedor de los botones */
+.modal-buttons {
+  display: flex;
+  justify-content: space-between; /* Distribuye espacio entre los botones */
+  margin-top: 20px; /* Espacio hacia arriba */
+  gap: 15px; /* Espaciado entre botones */
+}
+
+/* Botón "Añadir al carrito" */
+.btn-carrito {
+  background-color: #4caf50; /* Verde */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.btn-carrito:hover {
+  background-color: #45a049; /* Verde más oscuro al pasar el mouse */
+}
+
+/* Botón "Cerrar" */
+.btn-cerrar {
+  background-color: #f44336; /* Rojo */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.btn-cerrar:hover {
+  background-color: #d32f2f; /* Rojo más oscuro al pasar el mouse */
+}
+
+
+  .product-review {
+    margin-top: 15px;
+  }
+  
+  .stars {
+    font-size: 20px;
+    color: #ffbc00; /* Color amarillo para las estrellas */
+  }
+  
+  .star {
+    display: inline-block;
+    margin-right: 5px;
+  }
+  
+  .star.full::before {
+    content: "★"; /* Estrella completa */
+  }
+  
+  .star.empty::before {
+    content: "☆"; /* Estrella vacía */
+  }
+  
+  .star.half::before {
+    content: "★"; /* Media estrella */
+    color: #ffcc00;
+  }
+
+  .success-message {
+    margin-top: 20px;
+    color: green;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #e0ffe0;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #4caf50;
+  }
+  
+  .advertencia {
+    background-color: #f8c471; /* Fondo amarillo */
+    color: #d9534f; /* Texto en rojo oscuro */
+    border: 2px solid #d9534f; /* Borde rojo para resaltar */
+  }
+
+  .carousel {
+    position: relative;
+    width: 100%; /* Ancho total */
+    height: auto; /* Ajusta la altura automáticamente según la imagen */
+    max-height: 600px; /* Establece un límite máximo para la altura */
+    overflow: hidden; /* Asegura que nada se desborde */
+}
+  
+  .carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .carousel-item {
+    min-width: 100%; /* Cada imagen ocupará todo el ancho del contenedor */
+    position: relative;
+  }
+  
+  .carousel-item img {
+    width: 100%; /* Hace que la imagen ocupe todo el ancho */
+    height: 50%; /* Hace que la imagen ocupe toda la altura del contenedor */
+    object-fit: cover; /* Mantiene la proporción de la imagen y la ajusta para cubrir el contenedor */
+  }
+  
+  .carousel-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Ajuste para centrarlo */
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+  
+  .carousel-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+  }
+  
+  .indicator {
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .indicator.active {
+    background: white;
+  }
+  
+  .mat-icon.heart-outline {
+    color: gray;
+  }
+  
+  .mat-icon.heart-filled {
+    color: red;
+  }
+
+  button[mat-icon-button] {
+    margin-left: 110px; /* Ajusta el valor según cuánto quieras moverlo */
+  }
+
+  
+  

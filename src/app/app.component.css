@@ -1,0 +1,104 @@
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  justify-content: center;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2bb;     
+}
+
+ul{
+  font-family: "Playwrite GB S", cursive;
+}
+
+header, nav, main, footer {
+  margin: 20px;
+}
+
+header {
+  background-color: #5f5a72;
+  color: white;
+  text-align: center;
+  
+  padding: 10px;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  transition: color 0.3s ease; /* Transición suave */
+}
+
+nav a:hover {
+  color: #cc5500; /* Color al pasar el ratón */
+}
+
+.sidebar {
+  display: flex;
+  align-items: center; /* Alinea verticalmente el contenido */
+  height: 6vh; 
+  background-color: #f2f2f2; 
+  position: relative; /* Posicionamiento relativo para los botones */
+  padding: 0 15px; /* Agrega un margen interno a los lados */
+}
+
+.sidebar ul {
+  display: flex; /* Para alinear los enlaces horizontalmente */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1; /* Toma todo el espacio disponible */
+}
+
+.sidebar li {
+  margin-right: 10px; /* Espaciado entre enlaces */
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: rgb(3, 3, 3);
+  font-weight: bold;
+  font-size: 16px; 
+}
+
+.right-buttons {
+  position: absolute; /* Ubicación absoluta para alineación */
+  right: 15px; /* Separación del borde derecho */
+  display: flex;
+  gap: 10px; /* Espacio entre los botones */
+}
+
+.image-button img {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+}
+
+.image-button img:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Sombra más fuerte al hover */
+  transform: translateY(-3px); /* Simula un levantamiento ligero */
+}
+
+.separator {
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  margin: 0 5px; 
+}

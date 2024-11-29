@@ -1,0 +1,339 @@
+h1{
+    font-family: 'Outfit', sans-serif;
+    margin: 0;
+    padding: 0;
+    font-weight: bold
+}
+
+h3 {
+    font-family: 'Outfit', sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    font-weight: bold;/* Ajusta el tamaño de la fuente */
+}
+
+h4 {
+    font-family: 'Outfit', sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    font-weight: bold;/* Ajusta el tamaño de la fuente */
+}
+
+button {
+    font-family: 'Outfit', sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    font-weight: bold;/* Ajusta el tamaño de la fuente */
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2bb; 
+}
+ul{
+    font-family: "Playwrite GB S", cursive;
+}
+
+header, nav, main, footer {
+    margin: 20px;
+}
+
+header {
+    background-color: #5f5a72;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Sombra */
+    border-radius: 8px; /* Bordes redondeados */
+}
+.cart-button {
+    margin-right: 20px;
+    cursor: pointer;
+}   
+
+.cart-button img {
+    width: 40px; 
+    height: 43px;
+    float: right;
+    margin-top: -62px;
+}
+
+
+/* Arriba */
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s ease; /* Transición suave */
+}
+
+nav a:hover {
+    color: #cc5500; /* Color al pasar el ratón */
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 6vh; 
+    background-color: #f2f2f2; 
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin-bottom: 10px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: rgb(3, 3, 3);
+    font-weight: bold;
+    font-size: 16px; 
+    transition: color 0.3s ease; 
+}
+
+.sidebar a:hover {
+    color: #ff6600; 
+}
+.separator {
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    margin: 0 10px; 
+}
+
+
+
+
+
+.menu-right {
+    margin-left: auto; /* Empuja el botón "Cuenta" a la derecha */
+    color: rgb(3, 3, 3);
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Efecto hover para el botón "Cuenta" */
+.menu-right:hover {
+    color: #ff6600;
+}
+
+
+
+
+
+
+
+/* Transición suave */
+
+main section {
+    margin-bottom: 1px ;
+    padding: 10px;
+    color: #575757;
+}
+section#inicio {
+    text-align: center;
+ 
+}
+
+
+hr { /* partir el cuadro en dos*/
+    border: none;
+    height: 2px;
+    background-color: #643b8d;
+    margin: 0;
+}
+
+/*-------------------------------------------------------*/
+section#productos {
+    text-align: center;
+}
+
+.producto-container {
+    position: relative;
+    text-align: center;
+}
+
+.producto-image {
+    width: 100%; 
+}
+
+.producto-box {
+    color: #ffffff;
+    font-size: 300%;
+    width: 99%;
+    top: 355px;
+    left: 7%;
+    transform: translate(-6.5%, -53%);
+    position: absolute;
+    z-index: 1;
+    display: block;
+    justify-content: space-between;
+    align-items: 20px;
+    cursor: pointer;
+}
+
+footer {
+    background-color: #3c2d70;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2); /* Sombra */
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+
+.product-section {
+    display: flex;
+    flex-wrap: wrap; /* Permitir que los productos se envuelvan en varias líneas */
+    justify-content: space-between; /* Espacio entre los productos */
+    margin: 10px; /* Margen alrededor de la sección */
+}
+
+.product-box {
+    width: calc(33.33% - 20px); /* Ancho base para pantallas grandes */
+    box-sizing: border-box;
+    margin: 10px; /* Margen entre los productos */
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra */
+    transition: transform 0.2s; /* Transición para el efecto hover */
+    cursor: pointer;
+}
+
+/* Efecto hover */
+.product-box:hover {
+    transform: scale(1.02); /* Escalado al pasar el ratón */
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 1024px) {
+    .product-box {
+        width: calc(50% - 20px); /* 2 productos por fila en pantallas medianas */
+    }
+}
+
+@media (max-width: 768px) {
+    .product-box {
+        width: calc(100% - 20px); /* 1 producto por fila en pantallas pequeñas */
+    }
+}
+
+.product-box:hover {
+    transform: scale(1.02); /* Escalado al pasar el ratón */
+}
+
+.search-box {
+    float: left;
+    margin-top: -60px;
+}
+
+.search-box input {
+    margin-left: 15px;
+    padding: 10px 30px;
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+.search-box button {
+    padding: 8px 10px;
+    border: none;
+    cursor: pointer; 
+    display: inline-block;
+    background-color: #ff6600; 
+    color: white;
+    text-decoration: none;
+    border-radius: 20px; 
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+.search-box button:hover {
+    background-color: #cc5500; /* Color al pasar el ratón */
+    transform: translateY(-2px); /* Efecto hover */
+}
+  
+
+.carousel {
+    position: relative;
+    width: 100%; /* Ancho total */
+    height: auto; /* Ajusta la altura automáticamente según la imagen */
+    max-height: 600px; /* Establece un límite máximo para la altura */
+    overflow: hidden; /* Asegura que nada se desborde */
+}
+  
+  .carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .carousel-item {
+    min-width: 100%; /* Cada imagen ocupará todo el ancho del contenedor */
+    position: relative;
+  }
+  
+  .carousel-item img {
+    width: 100%; /* Hace que la imagen ocupe todo el ancho */
+    height: 50%; /* Hace que la imagen ocupe toda la altura del contenedor */
+    object-fit: cover; /* Mantiene la proporción de la imagen y la ajusta para cubrir el contenedor */
+  }
+  
+  .carousel-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Ajuste para centrarlo */
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+  
+  .carousel-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+  }
+  
+  .indicator {
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .indicator.active {
+    background: white;
+  }
+  

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.component.css">
+</head>
+<body>
+    <div class="form-container">
+        <div class="section-a">
+            <img src="assets/imgs/login.jpg" alt="Imagen de bienvenida" class="welcome-image">
+        </div>
+        <div class="section-b">
+            <h2>INICIAR SESIÓN</h2>
+
+            <!-- Formulario Angular -->
+            <form (ngSubmit)="onSubmit()">
+                <label for="username"></label>
+                <input 
+                    type="text" 
+                    id="username" 
+                    placeholder="Nombre de usuario" 
+                    [(ngModel)]="username" 
+                    name="username" 
+                    required>
+                
+                <label for="password"></label>
+                <div class="password-container">
+                    <input 
+                        type="password" 
+                        id="password" 
+                        placeholder="Contraseña" 
+                        [(ngModel)]="password" 
+                        name="password" 
+                        required>
+                    <button type="button" id="showPasswordButton" onclick="togglePasswordVisibility()">Mostrar</button>
+                </div>
+
+                <p class="forgot-password">¿Olvidaste la contraseña?</p>
+
+                <button type="submit">Iniciar sesión</button>
+                <p *ngIf="message" class="login-message">{{ message }}</p>
+            </form>
+            
+            <p class="new-account">¿No tienes una cuenta?</p>
+            <p class="new-register" (click)="goToRegister()">Regístrate</p>
+        </div>
+    </div>
+
+    <script>
+        function togglePasswordVisibility() {
+            var passwordField = document.getElementById("password");
+            var showPasswordButton = document.getElementById("showPasswordButton");
+
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                passwordField.style.width = "calc(290px - 16px)";
+                showPasswordButton.textContent = "Ocultar";
+            } else {
+                passwordField.type = "password";
+                passwordField.style.width = "calc(290px - 16px)";
+                showPasswordButton.textContent = "Mostrar";
+            }
+        }
+    </script>
+</body>
+</html>

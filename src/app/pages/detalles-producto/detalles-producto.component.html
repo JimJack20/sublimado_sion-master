@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="detalles-producto.component.css">
+</head>
+<div class="wishlist-container">
+  <h1>Lista de Deseos</h1>
+  <div *ngIf="wishlist.length === 0" class="empty-wishlist">
+    <p>No hay productos en tu lista de deseos.</p>
+  </div>
+
+  <div *ngFor="let producto of wishlist" class="wishlist-item">
+    <mat-card class="wishlist-card">
+      <img mat-card-image [src]="producto.image" alt="{{ producto.name }}" />
+      <mat-card-content>
+        <h3>{{ producto.name }}</h3>
+        <p>{{ producto.description }}</p>
+        <p class="price">{{ producto.price | currency }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button (click)="removeFromWishlist(producto)">Eliminar</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
