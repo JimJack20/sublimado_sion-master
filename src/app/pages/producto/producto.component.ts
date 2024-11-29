@@ -95,9 +95,12 @@ export class ProductoComponent {
   selectedProduct: any = null;
   message: string = '';
   selectedSize: string = '';
+  username: string | null = '';
   
 
-  constructor(private cartService: CartService, private wishlistService: WishlistService) { }
+  constructor(private cartService: CartService, private wishlistService: WishlistService) { 
+    this.username = localStorage.getItem('username');
+  }
 
   openProductDetail(product: any): void {
     this.selectedProduct = product;
@@ -132,6 +135,10 @@ export class ProductoComponent {
   }
 
   addToCart(): void {
+    if (!this.username) {
+      this.message = 'Por favor, inicia sesión para agregar productos al carrito.';
+      return;
+    }
     if (this.selectedProduct && this.selectedSize) {
       // Crear un objeto con el producto y la talla seleccionada
       const productWithSize = { ...this.selectedProduct, selectedSize: this.selectedSize };
@@ -154,6 +161,13 @@ export class ProductoComponent {
         this.message = '';
       }, 2000);
     }
+  }
+
+  logout(): void {
+    localStorage.removeItem('username');
+    localStorage.removeItem('token');
+    this.username = '';  // Limpiar la variable username
+    console.log('Usuario cerrado sesión');
   }
 
   filtrarProductos(): void {

@@ -5,25 +5,46 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
     <link rel="stylesheet" href="personalizar.component.css">
 </head>
-<body>
-
-    <header>
-        <h1>Expresa tu creatividad</h1>
-        <div class="search-box">
-            <input type="text" id="search-input" placeholder="Buscar..." onkeyup="filtrarProductos()">
-            <button type="button" onclick="filtrarProductos()">Buscar</button>
+<div class="customization-page">
+    <h1>Personaliza tu diseño</h1>
+  
+    <!-- Input para subir diseño -->
+    <div class="upload-section">
+        <label for="upload" class="upload-label">Sube tu diseño (JPG, PNG)</label>
+        <input type="file" id="upload" (change)="onFileSelected($event)" accept="image/*" class="upload-input">
+    </div>
+  
+    <!-- Simulación de la prenda -->
+    <div class="preview-section">
+        <div class="garment" [style.background-color]="selectedColor" [style.background-image]="garmentImage">
+            <img *ngIf="uploadedImage" [src]="uploadedImage" alt="Diseño personalizado" class="garment-image">
         </div>
-
-
-        <div class="image-upload">
-            <input type="file" (change)="onImageChange($event)" accept="image/*" />
-          </div>
-    </header>
-
-    <footer>
-        <p>&copy; 2023 Web Ventas - Todos los derechos reservados.</p>
-    </footer>
-</body>
-</html>
+    </div>
+  
+    <!-- Selección de tamaño -->
+    <div class="size-selector-section">
+        <h3>Selecciona el tamaño de la prenda:</h3>
+        <select [(ngModel)]="selectedSize" class="size-selector">
+            <option *ngFor="let size of sizes" [value]="size">{{ size }}</option>
+        </select>
+    </div>
+  
+    <!-- Cambiar color de la prenda -->
+    <div class="color-picker-section">
+        <h3>Selecciona el color de la prenda:</h3>
+        <div class="color-options">
+            <button *ngFor="let color of colors" 
+                    [style.background-color]="color" 
+                    (click)="changeColor(color)" class="color-button">
+            </button>
+        </div>
+    </div>
+  
+    <!-- Botón para añadir al carrito -->
+    <div class="add-to-cart-section">
+        <button class="add-to-cart" (click)="addToCart()">Añadir al carrito</button>
+    </div>
+</div>

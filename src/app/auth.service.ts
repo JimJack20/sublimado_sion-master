@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +15,24 @@ export class AuthService {
   }
 
   login(user: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/login`, user);
+    return this.http.post(`${this.apiUrl}/login`, user).pipe(
+      tap((res: any) => {
+        if (res && res.success) {
+          localStorage.setItem('username', res.username);
+          localStorage.setItem('token', res.token);
+        }
+      })
+    );
+  }
+
+  logout(): void {
+    // Elimina el nombre de usuario y el token de localStorage
+    localStorage.removeItem('username');
+    localStorage.removeItem('token');
+  }
+
+  // Método para comprobar si el usuario está autenticado
+  isAuthenticated(): boolean {
+    return !!localStorage.getItem('token'); // Verifica si hay un token en el localStorage
   }
 }

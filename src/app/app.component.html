@@ -31,6 +31,15 @@
           <img src="assets/imgs/carros.png" alt="Cart" />
         </a>
       </div>
+      <div *ngIf="authService.isAuthenticated()">
+        <!-- Mostrar botón de cerrar sesión solo si el usuario está autenticado -->
+        <button (click)="logout()">Cerrar sesión</button>
+      </div>
+      
+      <div *ngIf="!authService.isAuthenticated()">
+        <!-- Mostrar información de login cuando el usuario no está autenticado -->
+        <a routerLink="/login">Iniciar sesión</a>
+      </div>
     </ul>
 
     <!-- Contenedor para las imágenes alineadas a la derecha -->
